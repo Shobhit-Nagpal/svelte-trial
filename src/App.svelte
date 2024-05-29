@@ -1,27 +1,15 @@
 <script lang="ts">
+import "./app.css";
+import Navbar from "./lib/Navbar.svelte";
 import Todo from "./lib/Todo.svelte";
-
-const todos = [
-{
-  name: "Wash dishes",
-  id: "1",
-  priority: "urgent",
-},
-{
-  name: "Fold clothes",
-  id: "2",
-  priority: "eh",
-},
-{
-  name: "Bathe",
-  id: "3",
-  priority: "no need",
-},
-];
+import { todos } from "./store/store";
 </script>
 
-<main>
-{#each todos as todo (todo.id)}
+<main class="w-full h-full flex flex-col items-center justify-start">
+<Navbar />
+<div class="mt-4">
+{#each $todos as todo (todo.idx)}
   <Todo todo={todo} />
 {/each}
+</div>
 </main>
