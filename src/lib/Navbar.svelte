@@ -43,6 +43,8 @@ function addTodo(e: Event) {
       <div class="modal-box">
         <h3 class="font-bold text-lg mb-4">Add a todo</h3>
         <form on:submit={addTodo}>
+
+        <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" on:click={() => isModalOpen = false}>✕</button>
           <div class="flex flex-col gap-4">
             <label class="input input-bordered flex items-center gap-2">
               <input type="text" class="grow" placeholder="Task name" bind:value={taskName} />
