@@ -13,7 +13,11 @@ function createTodos() {
   const { subscribe, update } = writable(todoArr);
   return {
     subscribe,
-    add: (todo: TodoType) => update((todoArr) => [...todoArr, todo]),
+    add: (todo: TodoType) =>
+      update((todoArr) => {
+        todoArr.push(todo);
+        return todoArr;
+      }),
     remove: (idx: number) =>
       update((todoArr) => todoArr.filter((todo) => todo.idx !== idx)),
     complete: (idx: number) =>
